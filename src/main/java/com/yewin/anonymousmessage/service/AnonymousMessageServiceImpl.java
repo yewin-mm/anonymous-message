@@ -67,7 +67,7 @@ public class AnonymousMessageServiceImpl implements AnonymousMessageService{
         Users user = users.get(0);
         user.setUserId(String.valueOf(user.getId()));
 
-        return ResponseUtil.getResponseObj(ConstantUtil.SUCCESS_MESSAGE, null, users.get(0), ConstantUtil.UTC_ZONE_ID);
+        return ResponseUtil.getResponseObj(ConstantUtil.SUCCESS_MESSAGE, null, user, ConstantUtil.UTC_ZONE_ID);
     }
 
     @Override
