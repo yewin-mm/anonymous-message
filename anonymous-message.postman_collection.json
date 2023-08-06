@@ -1,0 +1,140 @@
+{
+	"info": {
+		"_postman_id": "2226a506-166c-4d53-88e6-e96f1e2795dd",
+		"name": "anonymous-message",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9784437"
+	},
+	"item": [
+		{
+			"name": "register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\":\"yewin\",\n    \"password\":\"ye\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/anonymous-message/api/v1/anonymousMessage/register",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"anonymous-message",
+						"api",
+						"v1",
+						"anonymousMessage",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\":\"yewin\",\n    \"password\":\"ye\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/anonymous-message/api/v1/anonymousMessage/login",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"anonymous-message",
+						"api",
+						"v1",
+						"anonymousMessage",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createMessage",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userId\":\"64ccf8a9e0315115df498d540\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/anonymous-message/api/v1/anonymousMessage/createMessage",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"anonymous-message",
+						"api",
+						"v1",
+						"anonymousMessage",
+						"createMessage"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "sendMessage",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"message\":\"hi\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/anonymous-message/api/v1/anonymousMessage/sendMessage?id=64ccf8a9e0315115df498d540",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"anonymous-message",
+						"api",
+						"v1",
+						"anonymousMessage",
+						"sendMessage"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "64ccf8a9e0315115df498d540"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
