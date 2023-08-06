@@ -4,15 +4,10 @@ import com.yewin.anonymousmessage.entity.Messages;
 import com.yewin.anonymousmessage.entity.Users;
 import com.yewin.anonymousmessage.repository.MessagesRepository;
 import com.yewin.anonymousmessage.repository.UsersRepository;
-import com.yewin.anonymousmessage.util.Constants;
 import helper.ConstantUtil;
 import helper.PasswordUtil;
 import helper.ResponseUtil;
 import helper.ValidationUtil;
-import org.bson.types.ObjectId;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
@@ -68,6 +63,9 @@ public class AnonymousMessageServiceImpl implements AnonymousMessageService{
         if(users.size() != 1){
             return ResponseUtil.getResponseObj(ConstantUtil.FAIL_MESSAGE, "Username or Password is wrong!", null, ConstantUtil.UTC_ZONE_ID);
         }
+
+        Users user = users.get(0);
+        user.setUserId(String.valueOf(user.getId()));
 
         return ResponseUtil.getResponseObj(ConstantUtil.SUCCESS_MESSAGE, null, users.get(0), ConstantUtil.UTC_ZONE_ID);
     }

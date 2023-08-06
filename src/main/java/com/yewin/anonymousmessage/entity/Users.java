@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.DocumentReference;
 
@@ -25,6 +26,9 @@ import java.util.List;
 public class Users {
     @Id
     private ObjectId id;
+
+    @Transient
+    private String userId;
     private String name;
     private String password;
     private boolean isOpenMessage;
@@ -38,17 +42,6 @@ public class Users {
     private LocalDateTime updated;
 
     private boolean deleted;
-
-    public Users(String name, String password, boolean isOpenMessage, List<Messages> messages, LocalDateTime created, LocalDateTime updated, boolean deleted) {
-        this.name = name;
-        this.password = password;
-        this.isOpenMessage = isOpenMessage;
-        this.messages = messages;
-        this.created = created;
-        this.updated = updated;
-        this.deleted = deleted;
-    }
-
 
 
     public Users(String name, String password, boolean isOpenMessage, String loginType, String role, String remark, LocalDateTime created, LocalDateTime updated, boolean deleted) {
