@@ -38,8 +38,10 @@ public class AnonymousMessagesController {
         try {
             String username = payloads.get(Constants.USERNAME);
             String password = payloads.get(Constants.PASSWORD);
-            printInfo("Start register process, request - username: " + username + ","+ Constants.PASSWORD+ ": " + password);
-            serviceResponse = service.register(username, password);
+            String registerType = payloads.get(Constants.REGISTER_TYPE);
+            String remark = payloads.get(Constants.REMARK);
+            printInfo("Start register process, request - payloads: " + payloads);
+            serviceResponse = service.register(username, password, registerType, remark);
             printInfo("End register process, response: " + serviceResponse);
             if(serviceResponse.getStatus().getStatus().equals(ConstantUtil.SUCCESS_MESSAGE)){
                 return new ResponseEntity<>(serviceResponse, HttpStatus.CREATED);

@@ -35,7 +35,7 @@ public class Users {
     @DocumentReference(lazy = true)
     private List<Messages> messages;
 
-    private String loginType;
+    private String registerType;
     private String role; // we can separate role table.
     private String remark;
     private LocalDateTime created;
@@ -44,11 +44,11 @@ public class Users {
     private boolean deleted;
 
 
-    public Users(String name, String password, boolean isOpenMessage, String loginType, String role, String remark, LocalDateTime created, LocalDateTime updated, boolean deleted) {
+    public Users(String name, String password, boolean isOpenMessage, String registerType, String role, String remark, LocalDateTime created, LocalDateTime updated, boolean deleted) {
         this.name = name;
         this.password = password;
         this.isOpenMessage = isOpenMessage;
-        this.loginType = loginType;
+        this.registerType = registerType;
         this.role = role;
         this.remark = remark;
         this.created = created;

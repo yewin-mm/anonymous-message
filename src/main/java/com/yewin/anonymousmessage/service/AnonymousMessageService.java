@@ -11,7 +11,7 @@ import pojo.ServiceResponse;
  */
 
 public interface AnonymousMessageService {
-    ServiceResponse register(String username, String password);
+    ServiceResponse register(String username, String password, String registerType, String remark);
     ServiceResponse login(String username, String password);
     ServiceResponse createMessage(String userId);
     ServiceResponse sendMessage(String userId, String message, String sendBy);

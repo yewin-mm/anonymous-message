@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"username\":\"yewin\",\n    \"password\":\"ye\"\n}",
+					"raw": "{\n    \"username\":\"Test\",\n    \"password\":\"ye\",\n    \"registerType\":\"manual\",\n    \"remark\": \"\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -35,7 +35,118 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "register (success)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\":\"Test\",\n    \"password\":\"ye\",\n    \"registerType\":\"manual\",\n    \"remark\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/anonymous-message/api/v1/anonymousMessage/register",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"anonymous-message",
+								"api",
+								"v1",
+								"anonymousMessage",
+								"register"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 06 Aug 2023 15:45:30 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": {\n        \"status\": \"SUCCESS\",\n        \"message\": null\n    },\n    \"data\": {\n        \"id\": {\n            \"timestamp\": 1691336730,\n            \"date\": \"2023-08-06T15:45:30.000+00:00\"\n        },\n        \"userId\": \"64cfc01a06f1c742afe90c89\",\n        \"name\": \"Test\",\n        \"password\": \"ye\",\n        \"messages\": null,\n        \"registerType\": \"manual\",\n        \"role\": \"NORMAL_USER\",\n        \"remark\": \"\",\n        \"created\": \"2023-08-06T22:15:30.207109\",\n        \"updated\": \"2023-08-06T22:15:30.207127\",\n        \"deleted\": false,\n        \"openMessage\": true\n    },\n    \"timestamp\": \"2023-08-06 15:45:30.211\"\n}"
+				},
+				{
+					"name": "register (fail)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\":\"Ye Win\",\n    \"password\":\"ye\",\n    \"registerType\":\"manual\",\n    \"remark\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/anonymous-message/api/v1/anonymousMessage/register",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"anonymous-message",
+								"api",
+								"v1",
+								"anonymousMessage",
+								"register"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 06 Aug 2023 15:43:01 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": {\n        \"status\": \"FAIL\",\n        \"message\": \"Records is already existed.\"\n    },\n    \"data\": null,\n    \"timestamp\": \"2023-08-06 15:43:01.956\"\n}"
+				}
+			]
 		},
 		{
 			"name": "login",
@@ -44,7 +155,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"username\":\"yewin\",\n    \"password\":\"ye\"\n}",
+					"raw": "{\n    \"username\":\"Test\",\n    \"password\":\"ye\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -66,7 +177,118 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "login (success)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\":\"Test\",\n    \"password\":\"ye\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/anonymous-message/api/v1/anonymousMessage/login",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"anonymous-message",
+								"api",
+								"v1",
+								"anonymousMessage",
+								"login"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 06 Aug 2023 15:45:55 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": {\n        \"status\": \"SUCCESS\",\n        \"message\": null\n    },\n    \"data\": {\n        \"id\": {\n            \"timestamp\": 1691336730,\n            \"date\": \"2023-08-06T15:45:30.000+00:00\"\n        },\n        \"userId\": \"64cfc01a06f1c742afe90c89\",\n        \"name\": \"Test\",\n        \"password\": \"uVvQyGPvsYtpWjjb/GGT/Q$htTn5gqyKYiNI9CsF4mEC9+p4uz9WYNvU+fny5rhoJg\",\n        \"messages\": [],\n        \"registerType\": \"manual\",\n        \"role\": \"NORMAL_USER\",\n        \"remark\": \"\",\n        \"created\": \"2023-08-06T22:15:30.207\",\n        \"updated\": \"2023-08-06T22:15:30.207\",\n        \"deleted\": false,\n        \"openMessage\": true\n    },\n    \"timestamp\": \"2023-08-06 15:45:55.275\"\n}"
+				},
+				{
+					"name": "login (fail)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\":\"tt\",\n    \"password\":\"ye\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/anonymous-message/api/v1/anonymousMessage/login",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"anonymous-message",
+								"api",
+								"v1",
+								"anonymousMessage",
+								"login"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 06 Aug 2023 15:46:23 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": {\n        \"status\": \"FAIL\",\n        \"message\": \"Username or Password is wrong!\"\n    },\n    \"data\": null,\n    \"timestamp\": \"2023-08-06 15:46:23.588\"\n}"
+				}
+			]
 		},
 		{
 			"name": "createMessage",
@@ -75,7 +297,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"userId\":\"64ccf8a9e0315115df498d540\"\n}",
+					"raw": "{\n    \"userId\":\"64cfc01a06f1c742afe90c89\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -97,7 +319,118 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "createMessage (success)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userId\":\"64cfc01a06f1c742afe90c89\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/anonymous-message/api/v1/anonymousMessage/createMessage",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"anonymous-message",
+								"api",
+								"v1",
+								"anonymousMessage",
+								"createMessage"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 06 Aug 2023 15:46:46 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": {\n        \"status\": \"SUCCESS\",\n        \"message\": null\n    },\n    \"data\": \"localhost:8081/anonymous-message/api/v1/anonymousMessage/sendMessage?id=64cfc01a06f1c742afe90c89\",\n    \"timestamp\": \"2023-08-06 15:46:46.810\"\n}"
+				},
+				{
+					"name": "createMessage (fail if id is wrong)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userId\":\"test\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/anonymous-message/api/v1/anonymousMessage/createMessage",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"anonymous-message",
+								"api",
+								"v1",
+								"anonymousMessage",
+								"createMessage"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 06 Aug 2023 15:47:44 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": {\n        \"status\": \"FAIL\",\n        \"message\": \"Something went wrong\"\n    },\n    \"data\": null,\n    \"timestamp\": \"2023-08-06 15:47:44.568\"\n}"
+				}
+			]
 		},
 		{
 			"name": "sendMessage",
@@ -114,7 +447,7 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8081/anonymous-message/api/v1/anonymousMessage/sendMessage?id=64ccf8a9e0315115df498d540",
+					"raw": "localhost:8081/anonymous-message/api/v1/anonymousMessage/sendMessage?id=64cfc01a06f1c742afe90c89",
 					"host": [
 						"localhost"
 					],
@@ -129,12 +462,135 @@
 					"query": [
 						{
 							"key": "id",
-							"value": "64ccf8a9e0315115df498d540"
+							"value": "64cfc01a06f1c742afe90c89"
 						}
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "sendMessage (success)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"message\":\"hi\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/anonymous-message/api/v1/anonymousMessage/sendMessage?id=64cfc01a06f1c742afe90c89",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"anonymous-message",
+								"api",
+								"v1",
+								"anonymousMessage",
+								"sendMessage"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "64cfc01a06f1c742afe90c89"
+								}
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 06 Aug 2023 15:48:28 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": {\n        \"status\": \"SUCCESS\",\n        \"message\": null\n    },\n    \"data\": null,\n    \"timestamp\": \"2023-08-06 15:48:28.858\"\n}"
+				},
+				{
+					"name": "sendMessage (fail if id is existed)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"message\":\"hi\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/anonymous-message/api/v1/anonymousMessage/sendMessage?id=11",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"anonymous-message",
+								"api",
+								"v1",
+								"anonymousMessage",
+								"sendMessage"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "11"
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 06 Aug 2023 15:48:43 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": {\n        \"status\": \"FAIL\",\n        \"message\": \"Link is not valid\"\n    },\n    \"data\": null,\n    \"timestamp\": \"2023-08-06 15:48:43.422\"\n}"
+				}
+			]
 		}
 	]
 }

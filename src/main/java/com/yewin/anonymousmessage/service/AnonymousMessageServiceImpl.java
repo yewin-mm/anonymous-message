@@ -44,11 +44,18 @@ public class AnonymousMessageServiceImpl implements AnonymousMessageService{
     }
 
     @Override
-    public ServiceResponse register(String username, String password) {
+    public ServiceResponse register(String username, String password, String registerType, String remark) {
         if(ValidationUtil.isEmptyString(username, "username") || ValidationUtil.isEmptyString(password, "password")){
             return ResponseUtil.getResponseObj(ConstantUtil.FAIL_MESSAGE, ConstantUtil.INPUT_NULL_OR_EMPTY_MESSAGE, null, ConstantUtil.UTC_ZONE_ID);
         }
-        Users user = usersRepository.insert(new Users(username, PasswordUtil.encode(password), true, "manual", "NORMAL_USER", "", LocalDateTime.now(), LocalDateTime.now(), false));
+        Query query = new Query(Criteria.where("name").is(username).and("deleted").is(false));
+        List<Users> userList = mongoTemplate.find(query, Users.class);
+        if(!userList.isEmpty()){
+            return ResponseUtil.getResponseObj(ConstantUtil.FAIL_MESSAGE, ConstantUtil.RECORD_IS_EXISTED_MESSAGE, null, ConstantUtil.UTC_ZONE_ID);
+        }
+        Users user = usersRepository.insert(new Users(username, PasswordUtil.encode(password), true, registerType, "NORMAL_USER", remark, LocalDateTime.now(), LocalDateTime.now(), false));
+        user.setUserId(String.valueOf(user.getId()));
+        user.setPassword(password);
         return ResponseUtil.getResponseObj(ConstantUtil.SUCCESS_MESSAGE, null, user, ConstantUtil.UTC_ZONE_ID);
     }
 
