@@ -18,6 +18,7 @@ import org.springframework.stereotype.Service;
 import pojo.ServiceResponse;
 
 import java.time.LocalDateTime;
+import java.time.ZoneOffset;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutorService;
@@ -26,7 +27,7 @@ import java.util.stream.Collectors;
 
 /**
  * author: Ye Win,
- * created_date: 02/08/2023,
+ * created_date: 05/08/2023,
  * project: anonymous-message,
  * package: com.yewin.anonymousmessage.service
  */
@@ -65,12 +66,22 @@ public class AnonymousMessageServiceImpl implements AnonymousMessageService{
         updateGeneratedLinkToUsers(user.getId(), url);
 
         user.setUserId(String.valueOf(user.getId()));
-        user.setPassword("");
+        user.setPassword(""); // for security reasons, we don't return password back.
+
+        // we return user information including his own Generated link after the user was registered to this system.
+        // so that frontend can show that link and if user shared that link, his friends can send message by using that link.
+
         return ResponseUtil.getResponseObj(ConstantUtil.SUCCESS_MESSAGE, null, user, ConstantUtil.UTC_ZONE_ID);
     }
 
     @Override
     public ServiceResponse checkName(String username) {
+        // this method is to check the name if username is already exist in the system.
+        // if username is already exist in the system,
+        // frontend will call this api with loop count 3 to suggest the user to choose.
+        // eg. if given username is Mr.AA and if it's already exist, frontend will call with random number like Mr.AA1, Mr.AA11, Mr.AA111
+        // if available (success) for checking name, frontend will suggest those name to users.
+
         if(ValidationUtil.isEmptyString(username, "username")){
             return ResponseUtil.getResponseObj(ConstantUtil.FAIL_MESSAGE, ConstantUtil.INPUT_NULL_OR_EMPTY_MESSAGE, null, ConstantUtil.UTC_ZONE_ID);
         }
@@ -99,11 +110,18 @@ public class AnonymousMessageServiceImpl implements AnonymousMessageService{
         user.setUserId(String.valueOf(user.getId()));
         user.setPassword("");
 
+        // we return all messages which belong to this user in this api.
+        // so, if user was shared his own link and if his friends send message through his link,
+        // we will show those all message when he login to this system.
+
         return ResponseUtil.getResponseObj(ConstantUtil.SUCCESS_MESSAGE, null, user, ConstantUtil.UTC_ZONE_ID);
     }
 
     @Override
     public ServiceResponse modifyOpenMessage(String userId, boolean messageOption){
+        // this method is to disable sending message,
+        // owner can disable his own link means doesn't allow to send more message from anyone.
+
         if(ValidationUtil.isEmptyString(userId, "userId")){
             return ResponseUtil.getResponseObj(ConstantUtil.FAIL_MESSAGE, "User Id is null or empty", null, ConstantUtil.UTC_ZONE_ID);
         }
@@ -130,7 +148,8 @@ public class AnonymousMessageServiceImpl implements AnonymousMessageService{
 
         ExecutorService executor = Executors.newFixedThreadPool(10);
         try {
-            // to control concurrency
+            // to control concurrency called multi threading because sendMessages might huge requests.
+            // we used Completable future and executors with thread size 10 to handle 10 concurrent requests.
             CompletableFuture<ServiceResponse> future = CompletableFuture.supplyAsync(() -> sendMessageAsnyc(userId, message, showSendBy, sendBy), executor);
             return future.join();
 
@@ -145,7 +164,10 @@ public class AnonymousMessageServiceImpl implements AnonymousMessageService{
 
     @Override
     public ServiceResponse deleteMessages(int days){
-        LocalDateTime deleteDays = LocalDateTime.now().minusDays(days);
+        // this method will call from scheduler in everyday midnight 00:00:00 AM UTC time
+        // to delete the message which older than 7 days to reduce db size.
+
+        LocalDateTime deleteDays = LocalDateTime.now(ZoneOffset.UTC).minusDays(days);
 
         Query oldMessagesQuery = new Query(Criteria.where("created").lt(deleteDays));
         List<Messages> oldMessages = mongoTemplate.find(oldMessagesQuery, Messages.class);
@@ -154,7 +176,6 @@ public class AnonymousMessageServiceImpl implements AnonymousMessageService{
             Update update = new Update().pull("messages", oldMessage);
             mongoTemplate.updateMulti(new Query(), update, Users.class);
         }
-
 
         return ResponseUtil.getResponseObj(ConstantUtil.SUCCESS_MESSAGE, null, null, ConstantUtil.UTC_ZONE_ID);
 
@@ -179,7 +200,12 @@ public class AnonymousMessageServiceImpl implements AnonymousMessageService{
             return ResponseUtil.getResponseObj(ConstantUtil.FAIL_MESSAGE, "This owner is currently disabled from sending messages.", null, ConstantUtil.UTC_ZONE_ID);
         }
 
-        Messages messages = insertMessage(message, showSendBy, sendBy);
+        /**
+         * we can filter the user limit by using user.getUserLimit()
+         * to stop allowing the sending messages from many users and request the money for extra sending message.
+         */
+
+        Messages messages = insertMessage(message, showSendBy, sendBy); // we need to encrypt the message later
 
         updateMessageListToUsers(new ObjectId(userId), messages);
 

@@ -16,7 +16,7 @@ import static helper.CommonUtil.printInfo;
 
 /**
  * author: Ye Win,
- * created_date: 02/08/2023,
+ * created_date: 05/08/2023,
  * project: anonymous-message,
  * package: com.yewin.anonymousmessage.controller
  */
@@ -46,6 +46,7 @@ public class AnonymousMessagesController {
                 return new ResponseEntity<>(serviceResponse, HttpStatus.CREATED);
             }else return new ResponseEntity<>(serviceResponse, HttpStatus.BAD_REQUEST);
         }catch (Exception e){
+            printInfo("Error in register process: " + e.getMessage());
             e.printStackTrace();
             serviceResponse = ResponseUtil.getResponseObj(ConstantUtil.FAIL_MESSAGE, e.getMessage(), null, ConstantUtil.UTC_ZONE_ID);
             return ResponseEntity.internalServerError().body(serviceResponse);
@@ -64,6 +65,7 @@ public class AnonymousMessagesController {
                 return ResponseEntity.ok().body(serviceResponse);
             }else return new ResponseEntity<>(serviceResponse, HttpStatus.BAD_REQUEST);
         }catch (Exception e){
+            printInfo("Error in checkName process: " + e.getMessage());
             e.printStackTrace();
             serviceResponse = ResponseUtil.getResponseObj(ConstantUtil.FAIL_MESSAGE, e.getMessage(), null, ConstantUtil.UTC_ZONE_ID);
             return ResponseEntity.internalServerError().body(serviceResponse);
@@ -84,6 +86,7 @@ public class AnonymousMessagesController {
                 return ResponseEntity.ok().body(serviceResponse);
             }else return new ResponseEntity<>(serviceResponse, HttpStatus.BAD_REQUEST);
         }catch (Exception e){
+            printInfo("Error in login process: " + e.getMessage());
             e.printStackTrace();
             serviceResponse = ResponseUtil.getResponseObj(ConstantUtil.FAIL_MESSAGE, e.getMessage(), null, ConstantUtil.UTC_ZONE_ID);
             return ResponseEntity.internalServerError().body(serviceResponse);
@@ -105,6 +108,7 @@ public class AnonymousMessagesController {
                 return ResponseEntity.ok().body(serviceResponse);
             }else return new ResponseEntity<>(serviceResponse, HttpStatus.BAD_REQUEST);
         }catch (Exception e){
+            printInfo("Error in modifyOpenMessage process: " + e.getMessage());
             e.printStackTrace();
             serviceResponse = ResponseUtil.getResponseObj(ConstantUtil.FAIL_MESSAGE, e.getMessage(), null, ConstantUtil.UTC_ZONE_ID);
             return ResponseEntity.internalServerError().body(serviceResponse);
@@ -129,15 +133,16 @@ public class AnonymousMessagesController {
                 return ResponseEntity.ok().body(serviceResponse);
             }else return new ResponseEntity<>(serviceResponse, HttpStatus.BAD_REQUEST);
         }catch (Exception e){
+            printInfo("Error in sendMessage process: " + e.getMessage());
             e.printStackTrace();
             serviceResponse = ResponseUtil.getResponseObj(ConstantUtil.FAIL_MESSAGE, e.getMessage(), null, ConstantUtil.UTC_ZONE_ID);
             return ResponseEntity.internalServerError().body(serviceResponse);
         }
     }
 
-    // that is for manual delete, we will implement that delete logic my scheduler.
+    // that is for manual delete. normally, scheduler will auto run deleteMessages process, check the scheduler class.
     @DeleteMapping("/deleteMessages")
-    public ResponseEntity<ServiceResponse> deleteMessages(@RequestParam(name = "deleteDays", defaultValue = "5", required = false) int deleteDays) {
+    public ResponseEntity<ServiceResponse> deleteMessages(@RequestParam(name = "deleteDays", defaultValue = "7", required = false) int deleteDays) {
         ServiceResponse serviceResponse;
         try {
 
@@ -146,6 +151,7 @@ public class AnonymousMessagesController {
             printInfo("End deleteMessages process, response: " + serviceResponse);
             return ResponseEntity.ok().body(serviceResponse);
         }catch (Exception e){
+            printInfo("Error in deleteMessages process: " + e.getMessage());
             e.printStackTrace();
             serviceResponse = ResponseUtil.getResponseObj(ConstantUtil.FAIL_MESSAGE, e.getMessage(), null, ConstantUtil.UTC_ZONE_ID);
             return ResponseEntity.internalServerError().body(serviceResponse);
