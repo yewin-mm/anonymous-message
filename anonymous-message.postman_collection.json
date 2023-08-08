@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"username\":\"Test\",\n    \"password\":\"ye\",\n    \"registerType\":\"manual\",\n    \"remark\": \"\"\n}",
+					"raw": "{\n    \"username\":\"yewin\",\n    \"password\":\"ye\",\n    \"registerType\":\"manual\",\n    \"remark\": \"\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -21,7 +21,7 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8081/anonymous-message/api/v1/anonymousMessage/register",
+					"raw": "localhost:8081/anonymous-message/api/v1/anonymousMessage/register?userLimit=500",
 					"host": [
 						"localhost"
 					],
@@ -32,18 +32,24 @@
 						"v1",
 						"anonymousMessage",
 						"register"
+					],
+					"query": [
+						{
+							"key": "userLimit",
+							"value": "500"
+						}
 					]
 				}
 			},
 			"response": [
 				{
-					"name": "register (success)",
+					"name": "success",
 					"originalRequest": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"username\":\"Test\",\n    \"password\":\"ye\",\n    \"registerType\":\"manual\",\n    \"remark\": \"\"\n}",
+							"raw": "{\n    \"username\":\"yewin\",\n    \"password\":\"ye\",\n    \"registerType\":\"manual\",\n    \"remark\": \"\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -51,7 +57,7 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8081/anonymous-message/api/v1/anonymousMessage/register",
+							"raw": "localhost:8081/anonymous-message/api/v1/anonymousMessage/register?userLimit=500",
 							"host": [
 								"localhost"
 							],
@@ -62,6 +68,12 @@
 								"v1",
 								"anonymousMessage",
 								"register"
+							],
+							"query": [
+								{
+									"key": "userLimit",
+									"value": "500"
+								}
 							]
 						}
 					},
@@ -79,7 +91,7 @@
 						},
 						{
 							"key": "Date",
-							"value": "Sun, 06 Aug 2023 15:45:30 GMT"
+							"value": "Tue, 08 Aug 2023 16:06:12 GMT"
 						},
 						{
 							"key": "Keep-Alive",
@@ -91,16 +103,16 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"status\": {\n        \"status\": \"SUCCESS\",\n        \"message\": null\n    },\n    \"data\": {\n        \"id\": {\n            \"timestamp\": 1691336730,\n            \"date\": \"2023-08-06T15:45:30.000+00:00\"\n        },\n        \"userId\": \"64cfc01a06f1c742afe90c89\",\n        \"name\": \"Test\",\n        \"password\": \"ye\",\n        \"messages\": null,\n        \"registerType\": \"manual\",\n        \"role\": \"NORMAL_USER\",\n        \"remark\": \"\",\n        \"created\": \"2023-08-06T22:15:30.207109\",\n        \"updated\": \"2023-08-06T22:15:30.207127\",\n        \"deleted\": false,\n        \"openMessage\": true\n    },\n    \"timestamp\": \"2023-08-06 15:45:30.211\"\n}"
+					"body": "{\n    \"status\": {\n        \"status\": \"SUCCESS\",\n        \"message\": null\n    },\n    \"data\": {\n        \"id\": {\n            \"timestamp\": 1691510771,\n            \"date\": \"2023-08-08T16:06:11.000+00:00\"\n        },\n        \"userId\": \"64d267f3c54506147f3f22f9\",\n        \"name\": \"yewin\",\n        \"password\": \"\",\n        \"userGeneratedLink\": null,\n        \"messages\": null,\n        \"registerType\": \"manual\",\n        \"role\": \"NORMAL_USER\",\n        \"userLimit\": 500,\n        \"remark\": \"\",\n        \"created\": \"2023-08-08T22:36:11.504171\",\n        \"updated\": \"2023-08-08T22:36:11.508781\",\n        \"deleted\": false,\n        \"openMessage\": true\n    },\n    \"timestamp\": \"2023-08-08 16:06:11.759\"\n}"
 				},
 				{
-					"name": "register (fail)",
+					"name": "fail",
 					"originalRequest": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"username\":\"Ye Win\",\n    \"password\":\"ye\",\n    \"registerType\":\"manual\",\n    \"remark\": \"\"\n}",
+							"raw": "{\n    \"username\":\"yewin\",\n    \"password\":\"ye\",\n    \"registerType\":\"manual\",\n    \"remark\": \"\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -108,7 +120,7 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8081/anonymous-message/api/v1/anonymousMessage/register",
+							"raw": "localhost:8081/anonymous-message/api/v1/anonymousMessage/register?userLimit=500",
 							"host": [
 								"localhost"
 							],
@@ -119,6 +131,12 @@
 								"v1",
 								"anonymousMessage",
 								"register"
+							],
+							"query": [
+								{
+									"key": "userLimit",
+									"value": "500"
+								}
 							]
 						}
 					},
@@ -136,7 +154,7 @@
 						},
 						{
 							"key": "Date",
-							"value": "Sun, 06 Aug 2023 15:43:01 GMT"
+							"value": "Tue, 08 Aug 2023 16:06:45 GMT"
 						},
 						{
 							"key": "Connection",
@@ -144,7 +162,125 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"status\": {\n        \"status\": \"FAIL\",\n        \"message\": \"Records is already existed.\"\n    },\n    \"data\": null,\n    \"timestamp\": \"2023-08-06 15:43:01.956\"\n}"
+					"body": "{\n    \"status\": {\n        \"status\": \"FAIL\",\n        \"message\": \"Records is already existed.\"\n    },\n    \"data\": null,\n    \"timestamp\": \"2023-08-08 16:06:45.565\"\n}"
+				}
+			]
+		},
+		{
+			"name": "checkName",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/anonymous-message/api/v1/anonymousMessage/checkName/yewin1",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"anonymous-message",
+						"api",
+						"v1",
+						"anonymousMessage",
+						"checkName",
+						"yewin1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "fail",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/anonymous-message/api/v1/anonymousMessage/checkName/yewin",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"anonymous-message",
+								"api",
+								"v1",
+								"anonymousMessage",
+								"checkName",
+								"yewin"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 08 Aug 2023 16:35:37 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": {\n        \"status\": \"FAIL\",\n        \"message\": \"Records is already existed.\"\n    },\n    \"data\": null,\n    \"timestamp\": \"2023-08-08 16:35:37.141\"\n}"
+				},
+				{
+					"name": "success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/anonymous-message/api/v1/anonymousMessage/checkName/yewin1",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"anonymous-message",
+								"api",
+								"v1",
+								"anonymousMessage",
+								"checkName",
+								"yewin1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 08 Aug 2023 16:36:10 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": {\n        \"status\": \"SUCCESS\",\n        \"message\": null\n    },\n    \"data\": null,\n    \"timestamp\": \"2023-08-08 16:36:10.389\"\n}"
 				}
 			]
 		},
@@ -155,7 +291,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"username\":\"Test\",\n    \"password\":\"ye\"\n}",
+					"raw": "{\n    \"username\":\"yewin\",\n    \"password\":\"ye\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -179,13 +315,13 @@
 			},
 			"response": [
 				{
-					"name": "login (success)",
+					"name": "success",
 					"originalRequest": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"username\":\"Test\",\n    \"password\":\"ye\"\n}",
+							"raw": "{\n    \"username\":\"yewin\",\n    \"password\":\"ye\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -207,8 +343,8 @@
 							]
 						}
 					},
-					"status": "Created",
-					"code": 201,
+					"status": "OK",
+					"code": 200,
 					"_postman_previewlanguage": "json",
 					"header": [
 						{
@@ -221,7 +357,7 @@
 						},
 						{
 							"key": "Date",
-							"value": "Sun, 06 Aug 2023 15:45:55 GMT"
+							"value": "Tue, 08 Aug 2023 16:07:45 GMT"
 						},
 						{
 							"key": "Keep-Alive",
@@ -233,16 +369,16 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"status\": {\n        \"status\": \"SUCCESS\",\n        \"message\": null\n    },\n    \"data\": {\n        \"id\": {\n            \"timestamp\": 1691336730,\n            \"date\": \"2023-08-06T15:45:30.000+00:00\"\n        },\n        \"userId\": \"64cfc01a06f1c742afe90c89\",\n        \"name\": \"Test\",\n        \"password\": \"uVvQyGPvsYtpWjjb/GGT/Q$htTn5gqyKYiNI9CsF4mEC9+p4uz9WYNvU+fny5rhoJg\",\n        \"messages\": [],\n        \"registerType\": \"manual\",\n        \"role\": \"NORMAL_USER\",\n        \"remark\": \"\",\n        \"created\": \"2023-08-06T22:15:30.207\",\n        \"updated\": \"2023-08-06T22:15:30.207\",\n        \"deleted\": false,\n        \"openMessage\": true\n    },\n    \"timestamp\": \"2023-08-06 15:45:55.275\"\n}"
+					"body": "{\n    \"status\": {\n        \"status\": \"SUCCESS\",\n        \"message\": null\n    },\n    \"data\": {\n        \"id\": {\n            \"timestamp\": 1691510771,\n            \"date\": \"2023-08-08T16:06:11.000+00:00\"\n        },\n        \"userId\": \"64d267f3c54506147f3f22f9\",\n        \"name\": \"yewin\",\n        \"password\": \"\",\n        \"userGeneratedLink\": \"localhost:8081/anonymous-message/api/v1/anonymousMessage/sendMessage?id=64d267f3c54506147f3f22f9\",\n        \"messages\": [],\n        \"registerType\": \"manual\",\n        \"role\": \"NORMAL_USER\",\n        \"userLimit\": 500,\n        \"remark\": \"\",\n        \"created\": \"2023-08-08T22:36:11.504\",\n        \"updated\": \"2023-08-08T22:36:11.508\",\n        \"deleted\": false,\n        \"openMessage\": true\n    },\n    \"timestamp\": \"2023-08-08 16:07:45.836\"\n}"
 				},
 				{
-					"name": "login (fail)",
+					"name": "fail",
 					"originalRequest": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"username\":\"tt\",\n    \"password\":\"ye\"\n}",
+							"raw": "{\n    \"username\":\"yewin\",\n    \"password\":\"ye1\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -278,7 +414,7 @@
 						},
 						{
 							"key": "Date",
-							"value": "Sun, 06 Aug 2023 15:46:23 GMT"
+							"value": "Tue, 08 Aug 2023 16:07:57 GMT"
 						},
 						{
 							"key": "Connection",
@@ -286,18 +422,18 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"status\": {\n        \"status\": \"FAIL\",\n        \"message\": \"Username or Password is wrong!\"\n    },\n    \"data\": null,\n    \"timestamp\": \"2023-08-06 15:46:23.588\"\n}"
+					"body": "{\n    \"status\": {\n        \"status\": \"FAIL\",\n        \"message\": \"Username or Password is wrong!\"\n    },\n    \"data\": null,\n    \"timestamp\": \"2023-08-08 16:07:57.317\"\n}"
 				}
 			]
 		},
 		{
-			"name": "createMessage",
+			"name": "modifyOpenMessage",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"userId\":\"64cfc01a06f1c742afe90c89\"\n}",
+					"raw": "{\n    \"userId\":\"64d267f3c54506147f3f22f9\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -305,7 +441,7 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8081/anonymous-message/api/v1/anonymousMessage/createMessage",
+					"raw": "localhost:8081/anonymous-message/api/v1/anonymousMessage/modifyOpenMessage/false",
 					"host": [
 						"localhost"
 					],
@@ -315,19 +451,20 @@
 						"api",
 						"v1",
 						"anonymousMessage",
-						"createMessage"
+						"modifyOpenMessage",
+						"false"
 					]
 				}
 			},
 			"response": [
 				{
-					"name": "createMessage (success)",
+					"name": "success",
 					"originalRequest": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"userId\":\"64cfc01a06f1c742afe90c89\"\n}",
+							"raw": "{\n    \"userId\":\"64d267f3c54506147f3f22f9\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -335,7 +472,7 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8081/anonymous-message/api/v1/anonymousMessage/createMessage",
+							"raw": "localhost:8081/anonymous-message/api/v1/anonymousMessage/modifyOpenMessage/false",
 							"host": [
 								"localhost"
 							],
@@ -345,12 +482,13 @@
 								"api",
 								"v1",
 								"anonymousMessage",
-								"createMessage"
+								"modifyOpenMessage",
+								"false"
 							]
 						}
 					},
-					"status": "Created",
-					"code": 201,
+					"status": "OK",
+					"code": 200,
 					"_postman_previewlanguage": "json",
 					"header": [
 						{
@@ -363,7 +501,7 @@
 						},
 						{
 							"key": "Date",
-							"value": "Sun, 06 Aug 2023 15:46:46 GMT"
+							"value": "Tue, 08 Aug 2023 16:09:12 GMT"
 						},
 						{
 							"key": "Keep-Alive",
@@ -375,16 +513,16 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"status\": {\n        \"status\": \"SUCCESS\",\n        \"message\": null\n    },\n    \"data\": \"localhost:8081/anonymous-message/api/v1/anonymousMessage/sendMessage?id=64cfc01a06f1c742afe90c89\",\n    \"timestamp\": \"2023-08-06 15:46:46.810\"\n}"
+					"body": "{\n    \"status\": {\n        \"status\": \"SUCCESS\",\n        \"message\": null\n    },\n    \"data\": null,\n    \"timestamp\": \"2023-08-08 16:09:12.558\"\n}"
 				},
 				{
-					"name": "createMessage (fail if id is wrong)",
+					"name": "fail(wrong userId)",
 					"originalRequest": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"userId\":\"test\"\n}",
+							"raw": "{\n    \"userId\":\"64d267f3c54506147f3f22f3\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -392,7 +530,7 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8081/anonymous-message/api/v1/anonymousMessage/createMessage",
+							"raw": "localhost:8081/anonymous-message/api/v1/anonymousMessage/modifyOpenMessage/false",
 							"host": [
 								"localhost"
 							],
@@ -402,7 +540,8 @@
 								"api",
 								"v1",
 								"anonymousMessage",
-								"createMessage"
+								"modifyOpenMessage",
+								"false"
 							]
 						}
 					},
@@ -420,7 +559,7 @@
 						},
 						{
 							"key": "Date",
-							"value": "Sun, 06 Aug 2023 15:47:44 GMT"
+							"value": "Tue, 08 Aug 2023 16:10:02 GMT"
 						},
 						{
 							"key": "Connection",
@@ -428,7 +567,7 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"status\": {\n        \"status\": \"FAIL\",\n        \"message\": \"Something went wrong\"\n    },\n    \"data\": null,\n    \"timestamp\": \"2023-08-06 15:47:44.568\"\n}"
+					"body": "{\n    \"status\": {\n        \"status\": \"FAIL\",\n        \"message\": \"User is not existed.\"\n    },\n    \"data\": null,\n    \"timestamp\": \"2023-08-08 16:10:02.526\"\n}"
 				}
 			]
 		},
@@ -439,7 +578,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"message\":\"hi\"\n}",
+					"raw": "{\n    \"userId\":\"64d267f3c54506147f3f22f9\",\n    \"message\":\"hello\",\n    \"sendBy\":\"mg mg\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -447,7 +586,7 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8081/anonymous-message/api/v1/anonymousMessage/sendMessage?id=64cfc01a06f1c742afe90c89",
+					"raw": "localhost:8081/anonymous-message/api/v1/anonymousMessage/sendMessage?showSendBy=true",
 					"host": [
 						"localhost"
 					],
@@ -461,21 +600,21 @@
 					],
 					"query": [
 						{
-							"key": "id",
-							"value": "64cfc01a06f1c742afe90c89"
+							"key": "showSendBy",
+							"value": "true"
 						}
 					]
 				}
 			},
 			"response": [
 				{
-					"name": "sendMessage (success)",
+					"name": "fail (openmessage is disable)",
 					"originalRequest": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"message\":\"hi\"\n}",
+							"raw": "{\n    \"userId\":\"64d267f3c54506147f3f22f9\",\n    \"message\":\"hello\",\n    \"sendBy\":\"mg mg\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -483,7 +622,7 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8081/anonymous-message/api/v1/anonymousMessage/sendMessage?id=64cfc01a06f1c742afe90c89",
+							"raw": "localhost:8081/anonymous-message/api/v1/anonymousMessage/sendMessage?showSendBy=true",
 							"host": [
 								"localhost"
 							],
@@ -497,71 +636,8 @@
 							],
 							"query": [
 								{
-									"key": "id",
-									"value": "64cfc01a06f1c742afe90c89"
-								}
-							]
-						}
-					},
-					"status": "Created",
-					"code": 201,
-					"_postman_previewlanguage": "json",
-					"header": [
-						{
-							"key": "Content-Type",
-							"value": "application/json"
-						},
-						{
-							"key": "Transfer-Encoding",
-							"value": "chunked"
-						},
-						{
-							"key": "Date",
-							"value": "Sun, 06 Aug 2023 15:48:28 GMT"
-						},
-						{
-							"key": "Keep-Alive",
-							"value": "timeout=60"
-						},
-						{
-							"key": "Connection",
-							"value": "keep-alive"
-						}
-					],
-					"cookie": [],
-					"body": "{\n    \"status\": {\n        \"status\": \"SUCCESS\",\n        \"message\": null\n    },\n    \"data\": null,\n    \"timestamp\": \"2023-08-06 15:48:28.858\"\n}"
-				},
-				{
-					"name": "sendMessage (fail if id is existed)",
-					"originalRequest": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"message\":\"hi\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "localhost:8081/anonymous-message/api/v1/anonymousMessage/sendMessage?id=11",
-							"host": [
-								"localhost"
-							],
-							"port": "8081",
-							"path": [
-								"anonymous-message",
-								"api",
-								"v1",
-								"anonymousMessage",
-								"sendMessage"
-							],
-							"query": [
-								{
-									"key": "id",
-									"value": "11"
+									"key": "showSendBy",
+									"value": "true"
 								}
 							]
 						}
@@ -580,7 +656,7 @@
 						},
 						{
 							"key": "Date",
-							"value": "Sun, 06 Aug 2023 15:48:43 GMT"
+							"value": "Tue, 08 Aug 2023 16:11:26 GMT"
 						},
 						{
 							"key": "Connection",
@@ -588,7 +664,153 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"status\": {\n        \"status\": \"FAIL\",\n        \"message\": \"Link is not valid\"\n    },\n    \"data\": null,\n    \"timestamp\": \"2023-08-06 15:48:43.422\"\n}"
+					"body": "{\n    \"status\": {\n        \"status\": \"FAIL\",\n        \"message\": \"This owner is currently disabled from sending messages.\"\n    },\n    \"data\": null,\n    \"timestamp\": \"2023-08-08 16:11:26.590\"\n}"
+				},
+				{
+					"name": "success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userId\":\"64d267f3c54506147f3f22f9\",\n    \"message\":\"hello\",\n    \"sendBy\":\"mg mg\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/anonymous-message/api/v1/anonymousMessage/sendMessage?showSendBy=true",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"anonymous-message",
+								"api",
+								"v1",
+								"anonymousMessage",
+								"sendMessage"
+							],
+							"query": [
+								{
+									"key": "showSendBy",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 08 Aug 2023 16:12:15 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": {\n        \"status\": \"SUCCESS\",\n        \"message\": null\n    },\n    \"data\": null,\n    \"timestamp\": \"2023-08-08 16:12:15.687\"\n}"
+				}
+			]
+		},
+		{
+			"name": "deleteMessages (manual)",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/anonymous-message/api/v1/anonymousMessage/deleteMessages?deleteDays=5",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"anonymous-message",
+						"api",
+						"v1",
+						"anonymousMessage",
+						"deleteMessages"
+					],
+					"query": [
+						{
+							"key": "deleteDays",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "deleteMessages (manual)",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/anonymous-message/api/v1/anonymousMessage/deleteMessages?deleteDays=5",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"anonymous-message",
+								"api",
+								"v1",
+								"anonymousMessage",
+								"deleteMessages"
+							],
+							"query": [
+								{
+									"key": "deleteDays",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 08 Aug 2023 14:32:04 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": {\n        \"status\": \"SUCCESS\",\n        \"message\": null\n    },\n    \"data\": null,\n    \"timestamp\": \"2023-08-08 14:32:03.921\"\n}"
 				}
 			]
 		}

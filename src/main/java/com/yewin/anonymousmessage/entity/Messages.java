@@ -25,13 +25,16 @@ public class Messages {
     private ObjectId id;
     private String message;
 
+    private boolean showSendBy;
+
     private String sendBy;
     private LocalDateTime created;
     private LocalDateTime updated;
     private boolean deleted;
 
-    public Messages(String message, String sendBy, LocalDateTime created, LocalDateTime updated, boolean deleted) {
+    public Messages(String message, boolean showSendBy, String sendBy, LocalDateTime created, LocalDateTime updated, boolean deleted) {
         this.message = message;
+        this.showSendBy = showSendBy;
         this.sendBy = sendBy;
         this.created = created;
         this.updated = updated;

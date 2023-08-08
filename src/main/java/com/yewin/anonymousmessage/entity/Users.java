@@ -32,11 +32,16 @@ public class Users {
     private String name;
     private String password;
     private boolean isOpenMessage;
+
+    private String userGeneratedLink;
+
     @DocumentReference(lazy = true)
     private List<Messages> messages;
 
     private String registerType;
-    private String role; // we can separate role table.
+    private String role; // we can separate role table. As of now, this app is not focus on authorization.
+
+    private int userLimit;
     private String remark;
     private LocalDateTime created;
     private LocalDateTime updated;
@@ -44,12 +49,13 @@ public class Users {
     private boolean deleted;
 
 
-    public Users(String name, String password, boolean isOpenMessage, String registerType, String role, String remark, LocalDateTime created, LocalDateTime updated, boolean deleted) {
+    public Users(String name, String password, boolean isOpenMessage, String registerType, String role, int userLimit, String remark, LocalDateTime created, LocalDateTime updated, boolean deleted) {
         this.name = name;
         this.password = password;
         this.isOpenMessage = isOpenMessage;
         this.registerType = registerType;
         this.role = role;
+        this.userLimit = userLimit;
         this.remark = remark;
         this.created = created;
         this.updated = updated;
